@@ -4,8 +4,9 @@
     <mat-list>
       <mat-list-item *ngFor="let tree of trees">
         <h3 mat-line>
-          <a mat-button [routerLink]="['/tree-edit', tree.id]">localizacao: {{tree.localizacao}} - Espécie:
-            {{tree.especie}} Idade aproximada: {{tree.idade}}</a>
+          <a mat-button [routerLink]="['/tree-edit', tree.id]"><b>Localizacao: </b> {{tree.localizacao}} - <b>Espécie:
+            </b>
+            <i>{{tree.especie}} </i> <b>Idade aproximada:</b> {{tree.idade}}</a>
         </h3>
       </mat-list-item>
     </mat-list>
