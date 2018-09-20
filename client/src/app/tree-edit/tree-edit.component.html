@@ -1,0 +1,36 @@
+<mat-card>
+  <form #treeForm="ngForm" (ngSubmit)="save(treeForm.value)">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>{{tree.especie ? 'Editar' : 'Adicionar'}} Árvore</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <input type="hidden" name="href" [(ngModel)]="tree.href">
+      <mat-form-field>
+        <input matInput placeholder="Localização" [(ngModel)]="tree.localizacao" required name="localizacao"
+          #localizacao>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Idade" [(ngModel)]="tree.idade" required name="idade" #idade>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Espécie" [(ngModel)]="tree.especie" required name="especie" #especie>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Altura" [(ngModel)]="tree.altura" required name="altura" #altura>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Diametro" [(ngModel)]="tree.diametro" required name="diametro" #altura>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!treeForm.form.valid">Salvar</button>
+      <button mat-raised-button color="secondary" (click)="remove(tree.href)" *ngIf="tree.href" type="button">Apagar</button>
+      <a mat-button routerLink="/trees">Cancelar</a>
+    </mat-card-actions>
+    <mat-card-footer>
+    </mat-card-footer>
+  </form>
+</mat-card>
